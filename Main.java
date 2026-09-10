@@ -12,6 +12,11 @@ interface lockable{
     void unlock();
 }
 
+enum connectType{
+    WIFI,
+    BLUETOOTH;
+}
+
 
 
 abstract class smartDevice{
@@ -28,7 +33,7 @@ abstract class smartDevice{
         
     }
 
-    abstract  void turnOn();
+    abstract void turnOn();
     abstract  void turnOf();
     abstract  void Status();
     String printData(){
@@ -42,6 +47,7 @@ abstract class smartDevice{
 }
 
 class smartTV extends smartDevice implements connectable{
+    connectType type = connectType.WIFI;
 
     smartTV(int id, String nama, int daya, int volume){
         super(id, nama, daya, volume);
@@ -54,8 +60,8 @@ class smartTV extends smartDevice implements connectable{
     }
 
     @Override 
-    public void turnOf("Off"){
-
+    public void turnOf(){
+        System.out.println("Off");
     }
 
     @Override 
@@ -72,6 +78,7 @@ class smartTV extends smartDevice implements connectable{
 
 
 class smartSpeaker extends smartDevice implements connectable{
+    connectType type = connectType.BLUETOOTH;
 
     smartSpeaker(int id, String nama, int daya, int volume){
         super(id, nama, daya, volume);
