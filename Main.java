@@ -124,3 +124,9 @@ class smartDoorLock extends smartDevice implements lockable{
         System.out.println("Unlock");
     }
 }
+
+public class Main{
+    public static void main(String[] args) {
+        
+    }
+}
